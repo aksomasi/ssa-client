@@ -1,0 +1,41 @@
+#sidebar-nav {
+  width: 160px;
+}
+#sidebar1 {
+  width: 180px;
+}
+
+.row>* {
+  padding-right: 0px;
+   padding-left: 0px;
+  flex-shrink: unset;
+}
+
+.side-item{
+  background-color: #333;
+  color: white;
+}
+
+.page-content{
+  display: flex;
+}
+.divider {
+  height: 100px;
+  background-color: #a7aaa7;
+}
+.add-puck-items{
+  border: #a7aaa7 2px solid;
+  height: 300px;
+}
+.add-puck-item{
+  height: 30px;
+  align-items: center;
+  border: #a7aaa7 2px solid;
+}
+.data-puck-main{
+  position: relative;
+}
+.add-puck-footer{
+  position: absolute;
+  border: 5px;
+}

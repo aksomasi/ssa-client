@@ -5,12 +5,14 @@ import {RouterModule, Routes} from "@angular/router";
 import {AddPuckComponent} from "./add-puck/add-puck.component";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SelectPuckFamilyComponent } from './select-puck-family/select-puck-family.component';
 
 
 const routes: Routes = [
   {path: '', component: DashboardComponent,
   children: [
-    {path: 'add-puck', component: AddPuckComponent}
+    {path: 'add-puck', component: AddPuckComponent
+    }
   ]},
 ];
 
@@ -19,7 +21,8 @@ const routes: Routes = [
     AddPuckComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SelectPuckFamilyComponent
   ],
   imports: [
     CommonModule,
