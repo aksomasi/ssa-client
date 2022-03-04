@@ -1,0 +1,66 @@
+<div class="row" id="body-row">
+  <!-- Sidebar -->
+  <div id="sidebar-container" class="sidebar-expanded d-none d-md-block"><!-- d-* hiddens the Sidebar in smaller devices. Its itens can be kept on the Navbar 'Menu' -->
+    <!-- Bootstrap List Group -->
+    <ul class="list-group">
+
+      <!-- Menu with submenu -->
+      <a (click)="navigate('add-puck/select-family')" data-toggle="collapse" aria-expanded="false" [ngClass]="{'active-side': puckService.getSelectedPage() != 'Select Puck Family'}" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed">Select Puck Family</span>
+        </div>
+      </a>
+      <a (click)="navigate('add-puck/family-info')" data-toggle="collapse" aria-expanded="false" [ngClass]="{'active-side': puckService.getSelectedPage() != 'Puck Family Information'}" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed" > Puck Family Information</span>
+        </div>
+      </a>
+      <a (click)="navigate('add-puck/puck-environments')" data-toggle="collapse" aria-expanded="false" [ngClass]="{'active-side': puckService.getSelectedPage() != 'Environments'}" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed">Environments</span>
+        </div>
+      </a>
+      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="active-side bg-dark list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-start align-items-center">
+        <span class="menu-collapsed">Datasets</span>
+      </div>
+    </a>
+
+      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="active-side bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed">    Datasets and</span>
+        </div>
+      </a>
+      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="active-side bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed">    Datasets retention</span>
+        </div>
+      </a>
+
+      <a href="#submenu1" data-toggle="collapse" aria-expanded="false" [ngClass]="{'active-side': puckService.getSelectedPage() != 'Logging'}" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-start align-items-center">
+          <span class="menu-collapsed"> Logging</span>
+        </div>
+      </a>
+    </ul><!-- List Group END-->
+  </div>
+  <!-- sidebar-container END -->
+
+  <!-- MAIN -->
+  <div class="col">
+
+    <h3 style="padding-left: 20px">
+      {{puckService.getSelectedPage()}}
+
+    </h3>
+    <router-outlet></router-outlet>
+
+<div>
+</div>
+
+
+
+  </div><!-- Main Col END -->
+
+</div><!-- body-row END -->
+

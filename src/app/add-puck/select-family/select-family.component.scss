@@ -1,0 +1,23 @@
+
+.inner-view{
+  height: 380px;
+  display: flex;
+}
+.inner-inner-view{
+  position: relative;
+  width: 100%;
+  padding-left: 20px !important;
+  padding-top: 30px;
+}
+.main-content{
+  width: 300px;
+}
+.inner-view-footer{
+  float: right;
+  position: fixed;
+  text-align: center;
+  bottom: 150px;
+  width: 100%;
+  color: #fff;
+
+}

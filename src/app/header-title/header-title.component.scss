@@ -1,0 +1,38 @@
+
+.divider-main{
+  height: 110px;
+  display: grid;
+  background-color: rgba(0,0,0,.03) !important;
+
+}
+.header-navigation{
+  padding-left: 10px !important;
+  padding-top: 20px !important;
+  padding-bottom: 10px;
+}
+.header-title{
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.125);
+  padding-left: 10px !important;
+  padding-top: 10px;
+}
+
+
+h3{
+  margin-top: unset !important;
+}
+
+.row>* {
+  padding-right: 0px;
+  padding-left: 0px;
+  flex-shrink: unset;
+}
+
+
+#sidebar-container1 {
+  min-height: 100vh;
+  padding: 0;
+}
+.sidebar-expanded {
+  width: 230px;
+}

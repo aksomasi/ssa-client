@@ -8,6 +8,14 @@ const routes: Routes = [
     path: 'puck-info',
     loadChildren: () => import('./puck-info/puck-info.module').then(m => m.PuckInfoModule)
   },
+  {
+    path: 'add-puck',
+    loadChildren: () => import('./add-puck/add-puck.module').then(m => m.AddPuckModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./add-puck/add-puck.module').then(m => m.AddPuckModule)
+  }
 
 ];
 
