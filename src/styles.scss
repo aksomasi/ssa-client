@@ -30,3 +30,17 @@ body {
   font-size: var(--normal-font-size);
   transition: .5s
 }
+
+
+body {
+  margin: unset !important;
+  font-family: unset !important;
+  font-size: unset !important;
+  font-weight: unset !important;
+  line-height: unset !important;
+  color: unset !important;
+  text-align: unset !important;
+  background-color: unset !important;
+  -webkit-text-size-adjust: unset !important;
+  -webkit-tap-highlight-color: unset !important;
+}

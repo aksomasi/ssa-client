@@ -1,4 +1,4 @@
-.active-side :hover{
+#sidebar-container :hover{
   background-color: white !important;
 }
 .divider-line{
@@ -10,7 +10,9 @@
 #sidebar1 {
   width: 180px;
 }
-
+.list-group-item {
+  border: unset !important;
+}
 .row>* {
   padding-right: 0px;
   padding-left: 0px;
@@ -78,8 +80,9 @@ h2{
 
 /* Menu item*/
 #sidebar-container .list-group a {
-  height: 40px;
+  height: 30px;
   color: white;
+  border: 1px solid rgba(0,0,0,.125) !important;
 }
 
 /* Submenu item*/
