@@ -4,6 +4,7 @@ import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: 'view-pucks', component: LoginComponent},
   {
     path: 'puck-info',
     loadChildren: () => import('./puck-info/puck-info.module').then(m => m.PuckInfoModule)
@@ -12,10 +13,6 @@ const routes: Routes = [
     path: 'add-puck',
     loadChildren: () => import('./add-puck/add-puck.module').then(m => m.AddPuckModule)
   },
-  {
-    path: '',
-    loadChildren: () => import('./add-puck/add-puck.module').then(m => m.AddPuckModule)
-  }
 
 ];
 
