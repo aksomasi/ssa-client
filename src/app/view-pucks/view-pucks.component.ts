@@ -13,11 +13,9 @@ export class ViewPucksComponent implements OnInit, AfterViewInit {
   constructor(private _liveAnnouncer: LiveAnnouncer) {
 
   }
-
-  @ViewChild(MatSort, { static: false })
-  set sort(v: MatSort) {
-    this.dataSource.sort = v;
-  }
+  originalData: any;
+  sortedData :any;
+  @ViewChild(MatSort) sort!: MatSort;
   /** Announce the change in sort state for assistive technology. */
   announceSortChange(sortState: Sort) {
     // This example uses English messages. If your application supports
@@ -30,6 +28,35 @@ export class ViewPucksComponent implements OnInit, AfterViewInit {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+  sortData(sort: Sort) {
+    const data = this.originalData.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a: any, b :any) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'puckName':
+          return this.compare(a.puckName, b.puckName, isAsc);
+        case 'environment':
+          return this.compare(a.environment, b.environment, isAsc);
+        case 'ownerName':
+          return this.compare(a.ownerName, b.ownerName, isAsc);
+       default:
+          return 0;
+      }
+    });
+    this.dataSource = new MatTableDataSource<DataPuck>(this.sortedData);
+    // @ts-ignore
+    this.dataSource.paginator = this.paginator;
+
+  }
+
+  compare(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  }
 
   applyFilter(filterValue: any) {
     filterValue = filterValue.value.trim(); // Remove whitespace
@@ -37,16 +64,18 @@ export class ViewPucksComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
   ngOnInit(): void {
+    this.originalData = ELEMENT_DATA;
   }
   displayedColumns: string[] = ['puckName', 'environment', 'ownerName', 'actions'];
-  dataSource = new MatTableDataSource<DataPuck>(ELEMENT_DATA);
+  dataSource = new MatTableDataSource<DataPuck>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | undefined;
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    // @ts-ignore
-    this.dataSource.paginator = this.paginator;
+    this.sort.active = 'puckName';
+    this.sort.direction = 'asc'
+
+   this.sortData(this.sort);
 
   }
 

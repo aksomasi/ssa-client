@@ -5,22 +5,22 @@
     </mat-form-field>
   </div>
 
-  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" >
+  <table mat-table [dataSource]="sortedData" matSort (matSortChange)="sortData($event)">
 
     <!-- Position Column -->
     <div matColumnDef="puckName">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by puckName"> No. </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="puckName"> No. </th>
       <td mat-cell *matCellDef="let element"> {{element.puckName}} </td>
     </div>
 
     <!-- Name Column -->
-    <div matColumnDef="environment" mat-sort-header sortActionDescription="Sort by environment">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+    <div matColumnDef="environment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="environment"> Name </th>
       <td mat-cell *matCellDef="let element"> {{element.environment}} </td>
     </div>
 
     <!-- Weight Column -->
-    <div matColumnDef="ownerName" mat-sort-header sortActionDescription="Sort by ownerName">
+    <div matColumnDef="ownerName">
       <th mat-header-cell *matHeaderCellDef> Weight </th>
       <td mat-cell *matCellDef="let element"> {{element.ownerName}} </td>
     </div>
